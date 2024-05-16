@@ -7,6 +7,16 @@ name = "pypi"
 django = "*"
 django-extensions = "*"
 django-environ = "*"
+channels = {extras = ["daphne"], version = "*"}
+django-nextjs = "*"
+playwright = "*"
+django-celery-results = "*"
+django-celery-beat = "*"
+celery = "*"
+redis = "*"
+nest-asyncio = "*"
+gevent = "*"
+pyinstaller = "*"
 
 [dev-packages]
 black = "*"

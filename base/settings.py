@@ -41,10 +41,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     # django apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -54,10 +54,21 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third apps
     "django_extensions",
+    "django_nextjs",
+    "django_celery_results",
+    "django_celery_beat",
     # local apps
     "accounts",
     "product",
+    "blog",
 ]
+
+# https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html
+# celery
+
+CELERY_BROKER_URL = "redis://127.0.0.1:6379"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -88,10 +99,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "base.wsgi.application"
+ASGI_APPLICATION = "base.asgi.application"
 
-
-# Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# Database
 
 DATABASES = {
     "default": {
@@ -182,3 +193,5 @@ LOGGING = {
         },
     },
 }
+
+NEXTJS_SETTINGS = {}
